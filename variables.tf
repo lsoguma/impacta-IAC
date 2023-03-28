@@ -33,3 +33,11 @@ variable "instance_env" {
     default = "dev"
     description = "Env da EC2"
 }
+
+variable "main_tags" {
+    tags = {
+        owner = "Luciana"
+        Environment = var.instance_env
+        managed-by = "Terraform"
+    }   
+}
