@@ -12,7 +12,7 @@ resource "aws_sns_topic_subscription" "user_updates_sqs_target" {
   endpoint  = aws_sqs_queue.sqs-class.arn
 }
 
-data "aws_iam_policy_document" "test" {
+data "aws_iam_policy_document" "iam_policy_sqs" {
   statement {
     sid    = "First"
     effect = "Allow"
@@ -26,14 +26,14 @@ data "aws_iam_policy_document" "test" {
     resources = [aws_sqs_queue.sqs-class.arn]
 
     condition {
-      test     = "ArnEquals"
+      iam_policy_sqs     = "ArnEquals"
       variable = "aws:SourceArn"
       values   = [aws_sns_topic.sns-class.arn]
     }
   }
 }
 
-resource "aws_sqs_queue_policy" "test" {
+resource "aws_sqs_queue_policy" "iam_policy_sqs" {
   queue_url = aws_sqs_queue.sqs-class.id
-  policy    = data.aws_iam_policy_document.test.json
+  policy    = data.aws_iam_policy_document.iam_policy_sqs.json
 }
