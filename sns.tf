@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "test" {
     condition {
       test     = "ArnEquals"
       variable = "aws:SourceArn"
-      values   = [aws_sns_topic.example.arn]
+      values   = [aws_sns_topic.sns-class.arn]
     }
   }
 }
