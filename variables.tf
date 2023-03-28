@@ -35,7 +35,7 @@ variable "instance_env" {
 }
 
 variable "main_tags" {
-    tags = {
+    default = {
         owner = "Luciana"
         Environment = var.instance_env
         managed-by = "Terraform"

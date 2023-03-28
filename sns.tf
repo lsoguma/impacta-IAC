@@ -4,7 +4,7 @@ resource "aws_sns_topic" "sns-class" {
 
 resource "aws_sqs_queue" "sqs-class" {
   name = "my-first-queue"
-  tags = var.main_tags.tags
+  tags = var.main_tags
 }
 
 resource "aws_sns_topic_subscription" "user_updates_sqs_target" {
