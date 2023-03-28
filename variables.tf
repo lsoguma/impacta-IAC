@@ -19,11 +19,17 @@ variable "instance_name" {
 variable "s3_env" {
     type = string
     default = "dev"
-    description = "Nome da instância EC2"
+    description = "Env da S3"
 }
 
 variable "base_cidr_block" {
     type = string
     default = "10.0.0.0/16"
     description = "base_cidr_block da VPC"
+}
+
+variable "instance_env" {
+    type = string
+    default = "dev"
+    description = "Env da EC2"
 }
